@@ -189,38 +189,39 @@ const MASTER_RESOURCES = [
 
 export default function BeginnerGuide() {
   return (
-    <div style={{ padding: '0 40px', display: 'flex', flexDirection: 'column', gap: '48px', color: 'white' }}>
+    <div style={{ padding: '0 40px', display: 'flex', flexDirection: 'column', gap: '48px', color: '#0f172a' }}>
       
       {/* 📘 MASTER TITLE */}
-      <div style={{ textAlign: 'center', padding: '80px 0', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '40px', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
-         <h1 style={{ fontSize: '48px', fontWeight: '950', margin: 0, textTransform: 'uppercase', letterSpacing: '4px' }}>🚀 FULL STACK ACADEMY</h1>
-         <p style={{ color: '#94a3b8', fontSize: '20px', marginTop: '16px', fontWeight: '700' }}>Master your build with this step-by-step technical console.</p>
+      <div style={{ textAlign: 'center', padding: '80px 0', background: '#ffffff', borderRadius: '40px', border: '1px solid #bfdbfe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
+         <h1 style={{ fontSize: '48px', fontWeight: '950', margin: 0, textTransform: 'uppercase', letterSpacing: '4px', color: '#1e3a8a' }}>🚀 FULL STACK ACADEMY</h1>
+         <p style={{ color: '#475569', fontSize: '20px', marginTop: '16px', fontWeight: '700' }}>Master your build with this step-by-step technical console.</p>
       </div>
 
       {/* 📚 1. THE 15 GUIDE MODULES */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '24px' }}>
          {GUIDE_SECTIONS.map((section, idx) => (
             <div key={idx} style={{ 
-                background: 'rgba(15, 23, 42, 0.4)', 
-                border: '1px solid rgba(255,255,255,0.05)',
+                background: '#ffffff', 
+                border: '1px solid #e2e8f0',
                 borderRadius: '24px', 
                 padding: '40px',
-                position: 'relative'
+                position: 'relative',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
             }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-                    <h2 style={{ fontSize: '24px', fontWeight: '900', color: 'white', margin: 0 }}>{section.title}</h2>
+                    <h2 style={{ fontSize: '24px', fontWeight: '900', color: '#1e3a8a', margin: 0 }}>{section.title}</h2>
                     <div style={{ display: 'flex', gap: '8px' }}>
                         {section.links.map((link, lIdx) => (
-                            <a key={lIdx} href={link.url} target="_blank" rel="noopener noreferrer" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', padding: '6px 16px', borderRadius: '80px', fontSize: '11px', fontWeight: '900', textDecoration: 'none' }}>{link.label} ↗</a>
+                            <a key={lIdx} href={link.url} target="_blank" rel="noopener noreferrer" style={{ background: '#eff6ff', color: '#2563eb', padding: '6px 16px', borderRadius: '80px', fontSize: '11px', fontWeight: '900', textDecoration: 'none', border: '1px solid #bfdbfe' }}>{link.label} ↗</a>
                         ))}
                     </div>
                 </div>
-                <p style={{ fontSize: '16px', color: '#94a3b8', lineHeight: '1.6' }}>{section.desc}</p>
-                <div style={{ marginTop: '24px', padding: '24px', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '16px', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
-                    <div style={{ fontSize: '12px', fontWeight: '900', color: '#60a5fa', letterSpacing: '2px', marginBottom: '16px' }}>HOW TO USE:</div>
+                <p style={{ fontSize: '16px', color: '#475569', lineHeight: '1.6' }}>{section.desc}</p>
+                <div style={{ marginTop: '24px', padding: '24px', background: '#eff6ff', borderRadius: '16px', border: '1px solid #bfdbfe' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '900', color: '#2563eb', letterSpacing: '2px', marginBottom: '16px' }}>HOW TO USE:</div>
                     <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                         {section.how.map((step, sIdx) => (
-                            <li key={sIdx} style={{ fontSize: '14px', color: '#cbd5e1', fontWeight: '700' }}><span style={{ color: '#60a5fa', marginRight: '8px' }}>✔</span> {step}</li>
+                            <li key={sIdx} style={{ fontSize: '14px', color: '#0f172a', fontWeight: '700' }}><span style={{ color: '#2563eb', marginRight: '8px' }}>✔</span> {step}</li>
                         ))}
                     </ul>
                 </div>
@@ -231,30 +232,31 @@ export default function BeginnerGuide() {
       <div style={{ height: '40px' }}></div>
 
       {/* 📚 2. RESOURCES & TOOLS GRID (NEW) */}
-      <div style={{ padding: '60px', background: 'rgba(59, 130, 246, 0.03)', borderRadius: '40px', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
+      <div style={{ padding: '60px', background: '#ffffff', borderRadius: '40px', border: '1px solid #bfdbfe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
          <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '48px' }}>
             <div style={{ fontSize: '32px' }}>📚</div>
-            <h2 style={{ fontSize: '32px', fontWeight: '900', margin: 0 }}>Resources & Tools</h2>
+            <h2 style={{ fontSize: '32px', fontWeight: '900', margin: 0, color: '#1e3a8a' }}>Resources & Tools</h2>
          </div>
 
          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
             {MASTER_RESOURCES.map((r, idx) => (
                 <div key={idx} style={{ 
-                    background: 'rgba(255,255,255,0.02)', 
-                    border: '1px solid rgba(255,255,255,0.05)',
+                    background: '#f8fafc', 
+                    border: '1px solid #e2e8f0',
                     borderRadius: '20px', 
                     padding: '32px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '16px'
+                    gap: '16px',
+                    boxShadow: '0 2px 4px -1px rgba(0, 0, 0, 0.03)'
                 }}>
-                    <div style={{ fontSize: '18px', fontWeight: '900' }}>{r.title}</div>
-                    <a href={r.url} target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>Download/Visit ↗</a>
-                    <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.5' }}>{r.what}</p>
-                    {r.extra && <div style={{ fontSize: '11px', color: '#fbbf24', fontWeight: '800' }}>{r.extra}</div>}
-                    <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '16px' }}>
+                    <div style={{ fontSize: '18px', fontWeight: '900', color: '#0f172a' }}>{r.title}</div>
+                    <a href={r.url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', fontSize: '13px', fontWeight: '800', textDecoration: 'none' }}>Download/Visit ↗</a>
+                    <p style={{ fontSize: '13px', color: '#475569', lineHeight: '1.5' }}>{r.what}</p>
+                    {r.extra && <div style={{ fontSize: '11px', color: '#f59e0b', fontWeight: '800' }}>{r.extra}</div>}
+                    <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '16px' }}>
                         {r.how.map((step, sIdx) => (
-                            <div key={sIdx} style={{ fontSize: '12px', color: '#cbd5e1', marginBottom: '6px' }}>• {step}</div>
+                            <div key={sIdx} style={{ fontSize: '12px', color: '#64748b', marginBottom: '6px' }}>• {step}</div>
                         ))}
                     </div>
                 </div>

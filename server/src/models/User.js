@@ -11,7 +11,12 @@ const userSchema = new mongoose.Schema({
   avgQuizScore: { type: Number, default: 0 },
   commits: { type: Number, default: 0 },
   reviews: { type: Number, default: 0 },
-  improvement: { type: Number, default: 0 } // Percentage
+  improvement: { type: Number, default: 0 }, // Percentage
+  quizProgress: {
+    q1: { completed: { type: Boolean, default: false }, score: { type: Number, default: 0 }, accuracy: { type: Number, default: 0 }, speed: { type: Number, default: 0 } },
+    q2: { completed: { type: Boolean, default: false }, score: { type: Number, default: 0 }, accuracy: { type: Number, default: 0 }, speed: { type: Number, default: 0 } },
+    q3: { completed: { type: Boolean, default: false }, score: { type: Number, default: 0 }, accuracy: { type: Number, default: 0 }, speed: { type: Number, default: 0 } }
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
