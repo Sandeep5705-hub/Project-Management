@@ -1,17 +1,41 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
-  if (!token) return res.status(401).json({ error: 'No token, authorization denied' });
-
+const auth = (req, res, next) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
-    req.user = decoded;
-    // We might need the user name for chat, usually it's better to fetch or include in token
-    // For simplicity, we assume name is in token or we fetch if needed.
-    // Let's add name to token in login/register if we need it here.
+    // Extract token from Authorization header
+    const authHeader = req.header('Authorization');
+    if (!authHeader) {
+      return res.status(401).json({ error: 'No token provided' });
+    }
+
+    const token = authHeader.replace('Bearer ', '');
+    if (!token) {
+      return res.status(401).json({ error: 'Token format invalid' });
+    }
+
+    // Verify token using JWT_SECRET
+    const jwtSecret = process.env.JWT_SECRET || 'super_secret_project_key_99';
+    const decoded = jwt.verify(token, jwtSecret);
+    
+    // Attach user info to request object
+    req.user = {
+      id: decoded.id,
+      role: decoded.role
+    };
+    
     next();
-  } catch (err) {
-    res.status(401).json({ error: 'Token is not valid' });
+  } catch (error) {
+    console.error('Token verification error:', error.message);
+    
+    if (error.name === 'TokenExpiredError') {
+      return res.status(401).json({ error: 'Token has expired' });
+    }
+    if (error.name === 'JsonWebTokenError') {
+      return res.status(401).json({ error: 'Token is not valid' });
+    }
+    
+    res.status(401).json({ error: 'Authentication failed' });
   }
 };
+
+module.exports = auth;
